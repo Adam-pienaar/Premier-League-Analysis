@@ -5,7 +5,7 @@ import pandas as pd
 import numpy as np
 import os   
 
-EXCEL_PATH = 'Data/PL_Finances_vs_Performance.xlsx'
+EXCEL_PATH = '/Users/adam/Desktop/Premier-League-Analysis/Data/PL_Finances_VS_Performance.xlsx'
 OUTPUT_DIR = 'Data/processed'
 OUTPUT_PATH = os.path.join(OUTPUT_DIR, 'cleaned_data.csv')
 
@@ -50,7 +50,7 @@ def save_data(df):
     df.to_csv(OUTPUT_PATH, index=False)
     print(f"Cleaned data saved to {OUTPUT_PATH}")
 
-    def preview(df):
+def preview(df):
         print("/nCleaned dataset preview:")
         print(f"{'Club': <30} {'Pos': <5} {'Pts': <5} {'GF': <5} {'GA': <5} {'Wage £m': <12} {'Revenue £m': <10} {'Wage/Revenue %': <8}")
         print("-" * 85)
@@ -60,7 +60,8 @@ def save_data(df):
                   f"{row['Wage Cost £m']: <12.3f} {row['Revenue £m']:<10.3f} {row['Wage to Revenue Ratio']:<8.1f}")
 
 if __name__ == "__main__":
-    os.chdir(os.path.dirname(os.path.dirname(os.path.dirname(__file__))))
+    os.chdir(os.path.dirname(os.path.abspath(__file__)))
+    os.chdir('..')
     df = load_data()
     df = clean_data(df)
     validate_data(df)
