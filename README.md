@@ -1,4 +1,16 @@
 # Premier-League-Analysis
+
+## Description
+The blog will analyse the relationship between Premier League club spending and their final league position in the 2023/2024 season.
+
+Using data on wage costs, revenue, and final league standings, the analysis 
+explores whether the clubs that spend the most consistently finish higher 
+in the table — and which clubs over or underperform relative to their budget.
+
+### Key Questions
+- Does higher wage spending lead to a higher league finish?
+- Which clubs get the best value from their spending?
+- Is there a financial threshold needed to compete at the top?
 ## Terminal Setup & Troubleshooting
 
 ### 1. Initialising Git and Connecting to GitHub
