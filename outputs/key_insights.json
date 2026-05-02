@@ -1,0 +1,22 @@
+{
+  "n_clubs": 20,
+  "season": "2023-2024",
+  "r_wages_points": 0.889,
+  "p_wages_points": 0.0,
+  "r_revenue_points": 0.859,
+  "p_revenue_points": 0.0,
+  "m1_r_squared": 0.7907,
+  "m1_adj_r_squared": 0.7791,
+  "m2_r_squared": 0.7383,
+  "m2_adj_r_squared": 0.7238,
+  "m3_r_squared": 0.7952,
+  "m3_adj_r_squared": 0.7711,
+  "m1_wage_coef": 0.1685,
+  "m1_wage_p": 0.0,
+  "highest_wages_club": "Manchester City",
+  "highest_wages_m": 412.6,
+  "lowest_wages_club": "Luton Town",
+  "lowest_wages_m": 56.9,
+  "avg_wages_revenue_ratio": 67.9,
+  "source": "Deloitte (2025) Annual Review of Football Finance, Table 1, p.44"
+}
