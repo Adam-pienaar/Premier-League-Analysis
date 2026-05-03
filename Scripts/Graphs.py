@@ -141,13 +141,30 @@ def main():
     ax.legend(handles=big_six_legend() + [ Line2D([0], [0], color=ACCENT, linestyle='--', label='Perfect prediction', linewidth=1.5)], facecolor='#ffffff', edgecolor=GRID, labelcolor=FG, fontsize=9)
     save(fig, 'graph5_predicted_vs_actual_points.png')
 
-    print("\nAll 5 Graphs saved.")
+    #Graph 6 : Goals Scorded vs Wages
+    fig, ax = base_fig()
+    scatter_clubs(ax, df, 'Wage Cost £m', 'Goals Scored')
+    reg_line(ax, df['Wage Cost £m'], df['Goals Scored'])
+    r_gs, _ = stats.pearsonr(df['Goals Scored'], df['Wage Cost £m'])
+    ax.set_xlabel('Wage Cost (£m)', fontsize=10)
+    ax.set_ylabel('Goals Scored', fontsize=10)
+    ax.set_title(f'Graph 6: Goals Scored vs Wage Cost (2023-2024 Premier League Season)\n' f'r = {r_gs:.3f}', fontsize=11, pad=12)
+    ax.legend(handles=big_six_legend() + [ Line2D([0], [0], color=ACCENT, linestyle='--', label='Regression line', linewidth=1.5)], facecolor='#ffffff', edgecolor=GRID, labelcolor=FG, fontsize=9)
+    save(fig, 'graph6_goals_scored_vs_wage_cost.png')
 
+    #Graph 7: Goals Conceded vs Wages
+    fig, ax = base_fig()
+    scatter_clubs(ax, df, 'Wage Cost £m', 'Goals Conceded')
+    reg_line(ax, df['Wage Cost £m'], df['Goals Conceded'])
+    r_gc, _ = stats.pearsonr(df['Goals Conceded'], df['Wage Cost £m'])
+    ax.set_xlabel('Wage Cost (£m)', fontsize=10)
+    ax.set_ylabel('Goals Conceded', fontsize=10)
+    ax.set_title(f'Graph 7: Goals Conceded vs Wage Cost (2023-2024 Premier League Season)\n' f'r = {r_gc:.3f}', fontsize=11, pad=12)
+    ax.legend(handles=big_six_legend() + [ Line2D([0], [0], color=ACCENT, linestyle='--', label='Regression line', linewidth=1.5)], facecolor='#ffffff', edgecolor=GRID, labelcolor=FG, fontsize=9)
+    save(fig, 'graph7_goals_conceded_vs_wage_cost.png')
+
+    print("\nAll graphs generated and saved")
 if __name__ == "__main__":
     os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
     main()
-                                                      
-
-
-
-               
+    
