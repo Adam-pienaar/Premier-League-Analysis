@@ -110,7 +110,42 @@ def main():
     ax.legend(handles=big_six_legend(), facecolor='#ffffff', edgecolor=GRID, labelcolor=FG, fontsize=9)
     save(fig, 'graph3_wage_revenue_ratio_vs_points.png')
 
-    
+    #Graph 4: Wage Bill bar chart
+    fig, ax = base_fig(w=12, h=7)
+    df_sorted = df.sort_values('League Position')
+    colours = [GREEN if c in BIG_SIX else ORANGE for c in df_sorted['Club']]
+    bars = ax.barh(df_sorted['Club'], df_sorted['Wage Cost £m'], color=colours, edgecolor='white', linewidth=0.7)
+    for bar, val in zip(bars, df_sorted['Wage Cost £m']):
+        ax.text(bar.get_width() + 3, bar.get_y() + bar.get_height()/2, f'{val:.1f}m', va='center', fontsize=8, color=FG)
+    ax.set_xlabel('Wage Cost (£m)', fontsize=10)
+    ax.set_title('Graph 4: Wage Bill by Final League Position)\n' '2023-2024 Premier League Season', fontsize=11, pad=12)
+    ax.invert_yaxis()
+    ax.legend(handles=big_six_legend(), facecolor='#ffffff', edgecolor=GRID, labelcolor=FG, fontsize=9)
+    save(fig, 'graph4_wage_bill_bar_chart.png')
+
+    #Graph 5: Predcted vs Actual Points
+    m1 = reg[reg['model'] == 'M1: Points ~ Wage Costs']
+    coefs = dict(zip(m1['variable'], m1['coefficient']))
+    df['Predicted Points'] = coefs['const'] + coefs['Wage Cost £m'] * df['Wage Cost £m']
+    fig, ax = base_fig()
+    colours = [GREEN if c in BIG_SIX else ORANGE for c in df['Club']]
+    ax.scatter(df['Predicted Points'], df['Final Points'], c=colours, s=90, zorder=3, linewidths=0.5, edgecolor='white',)
+    mn = min(df['Predicted Points'].min(), df['Final Points'].min()) - 5
+    mx = max(df['Predicted Points'].max(), df['Final Points'].max()) + 5
+    ax.plot([mn, mx], [mn, mx], color=ACCENT, linestyle='--', linewidth=1.5, alpha=0.8, label='Perfect prediction')
+    for _, row in df.iterrows():
+        ax.annotate(row['Club'].split()[0], (row['Predicted Points'], row['Final Points']), textcoords="offset points", xytext=(6,4), fontsize=8, color=FG, alpha=0.9)
+    ax.set_xlabel('Predicted Points (M1)', fontsize=10)
+    ax.set_ylabel('Final Points', fontsize=10)
+    ax.set_title(f'Graph 5: Predicted vs Actual Points (2023-2024 Premier League Season)\n' f'R² = {insights["m1_r_squared"]}', fontsize=11, pad=12)
+    ax.legend(handles=big_six_legend() + [ Line2D([0], [0], color=ACCENT, linestyle='--', label='Perfect prediction', linewidth=1.5)], facecolor='#ffffff', edgecolor=GRID, labelcolor=FG, fontsize=9)
+    save(fig, 'graph5_predicted_vs_actual_points.png')
+
+    print("\nAll 5 Graphs saved.")
+
+if __name__ == "__main__":
+    os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+    main()
                                                       
 
 
