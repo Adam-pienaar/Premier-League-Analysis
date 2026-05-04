@@ -20,7 +20,7 @@
 }
 html { scroll-behavior: smooth; }
 body {
-  font-family: 'Inter', sans-serif; 'DM Serif Display', 'Fira Code';
+  font-family: 'Inter', sans-serif;
   background-color: var(--bg);
   color: var(--fg);
   line-height: 1.6;
@@ -33,14 +33,14 @@ body {
   position: fixed; top: 0; left: 0; height: 3px; background: var(--accent); width: 0%; z-index: 999; transition: width 0.1s linear;
 }
 
-/*Nav*/
+/* Nav */
 nav {
   position: fixed; top: 3px; left: 0; right: 0; background: rgba(15,17,23,0.92); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); padding: 0.75rem 2rem; display: flex; align-items: center; justify-content: space-between; z-index: 99;
 }
 nav .logo {
     font-family: 'Inter'; font-weight: 700; font-size: 0.95rem; color: var(--accent); letter-spacing: 0.05em;
 }
-nav .nav-links a {
+nav .nav-links {
     display: flex; gap: 1.5rem; list-style: none; 
 }
 nav .nav-links a {
@@ -93,46 +93,169 @@ nav .nav-links a:hover { color: var(--fg); }
   text-transform: uppercase; letter-spacing: 0.1em;
 }
 
-.stat-box {
-    text-align: center;
-  }
-  .stat-box .num {
-    font-family: 'Inter', sans-serif;
-    font-size: 2.2rem; font-weight: 800;
-    color: var(--accent);
-  }
-  .stat-box .label {
-    font-size: 0.8rem; color: var(--muted);
-    font-family: 'Inter', sans-serif;
-    text-transform: uppercase; letter-spacing: 0.1em;
-  }
-  /* Main content */
-  main {
-    max-width: 860px; margin: 0 auto;
-    padding: 4rem 2rem;
-  }
-  section { margin-bottom: 5rem; }
-  .section-tag {
-    font-family: 'Inter', sans-serif;
-    font-size: 0.7rem; font-weight: 700;
-    letter-spacing: 0.2em; text-transform: uppercase;
-    color: var(--accent); margin-bottom: 0.75rem;
-  }
-  h2 {
-    font-family: 'DM Serif Display', serif;
-    font-size: clamp(1.4rem, 3vw, 2rem);
-    font-weight: 700; margin-bottom: 1.25rem;
-    line-height: 1.2;
-  }
-  h3 {
-    font-family: 'Inter', sans-serif;
-    font-size: 1.1rem; font-weight: 600;
-    margin: 2rem 0 0.75rem; color: var(--fg);
-  }
-  p { margin-bottom: 1.25rem; color: var(--muted); }
+/* Main content */
+main {
+  max-width: 860px; margin: 0 auto;
+  padding: 4rem 2rem;
+}
+section { margin-bottom: 5rem; }
 
-  </style>
+.section-tag {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem; font-weight: 700;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 1rem;
+}
+
+h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    font-weight: 800; line-height: 1.2;
+    color: var(--fg); margin-bottom: 1rem;
+}
+
+h3 {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.2rem; font-weight: 600;
+    color: var(--fg); margin-bottom: 0.75rem;
+}
+
+p { margin-bottom: 1.25rem; color: var(--muted);}
+
+/* Figures */
+.figure-block {
+    margin: 2.5rem 0;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+}
+.figure-block img {
+    width: 100%; display: block;
+}
+.figure-block .caption {
+    padding: 0.9rem 1.2rem;
+    font-size: 0.9rem; color: var(--muted);
+    font-style: italic; border-top: 1px solid var(--border);
+}
+
+/* Regression Table */
+.reg-table {
+    width: 100%; border-collapse: collapse;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.9rem; margin: 1.5rem 0;
+}
+.reg-table th {
+    background: var(--surface); color: var(--muted); font-weight: 500;
+    padding: 0.6rem 0.9rem; text-align: left; border-bottom: 1px solid var(--border); letter-spacing: 0.05em;
+}
+.reg-table td {
+    padding: 0.6rem 0.9rem; border-bottom: 1px solid var(--border); color: var(--fg);
+}
+.reg-table tr:last-child td { border-bottom: none; }
+.sig { color: var(--green); font-weight: 600;}
+
+/* Callout Box */
+.callout {
+    background: var(--surface);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 8px 8px 0;
+    padding: 1.2rem 1.5rem;
+    margin: 2rem 0;
+}
+.callout p { margin: 0; color: var(--fg); }
+
+/* Key findings grid */
+.findings-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem; margin: 2rem 0;
+}
+.finding-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.2rem;
+}
+.finding-card .val {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.7rem; font-weight: 800;
+    color: var(--accent);
+}
+.finding-card .desc {
+    font-size: 0.82rem; color: var(--muted);
+    margin-top: 0.3rem;
+}
+
+/* Sources */
+.sources {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.5rem 2rem;
+}
+.sources li {
+    font-size: 0.85rem; color: var(--muted);
+    margin-bottom: 0.6rem; line-height: 1.5;
+}
+.sources a { color: var(--accent); }
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 3rem 2rem;
+    border-top: 1px solid var(--border);
+    font-size: 0.82rem; color: var(--muted);
+    font-family: 'Inter', sans-serif;
+}
+
+/* Reveal animation */
+.reveal {
+    opacity: 0; transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.visible {
+    opacity: 1; transform: translateY(0);
+}
+</style>
 </head>
 <body>
+<div id="progress-bar"></div>
+
+<nav>
+  <span class="logo">PL Finances 2023/24</span>
+  <ul class="nav-links">
+    <li><a href="#introduction">Intro</a></li>
+    <li><a href="#data">Data</a></li>
+    <li><a href="#findings">Findings</a></li>
+    <li><a href="#conclusion">Conclusion</a></li>
+    <li><a href="#sources">Sources</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <p class="hero-tag">BEE2041 Empirical Project &nbsp;·&nbsp; University of Exeter &nbsp;·&nbsp; 2023/24 Season</p>
+  <h1>Does Money Buy Success in the Premier League?</h1>
+  <p class="subtitle">An empirical analysis of how wage expenditure and revenue determine club performance across all 20 Premier League clubs in 2023/24.</p>
+  <div class="hero-stats">
+    <div class="stat-box">
+      <div class="num">r = 0.889</div>
+      <div class="label">Wages–Points Correlation</div>
+    </div>
+    <div class="stat-box">
+      <div class="num">79%</div>
+      <div class="label">Variation Explained (M1)</div>
+    </div>
+    <div class="stat-box">
+      <div class="num">20</div>
+      <div class="label">Premier League Clubs</div>
+    </div>
+    <div class="stat-box">
+      <div class="num">£412.6m</div>
+      <div class="label">Highest Wage Bill (Man City)</div>
+    </div>
+  </div>
+</section>
 </body>
 </html>

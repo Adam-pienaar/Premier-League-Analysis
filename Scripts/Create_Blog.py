@@ -202,3 +202,82 @@ p {{ margin-bottom: 1.25rem; color: var(--muted);}}
     font-size: 0.82rem; color: var(--muted);
     margin-top: 0.3rem;
 }}
+
+/* Sources */
+.sources {{
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.5rem 2rem;
+}}
+.sources li {{
+    font-size: 0.85rem; color: var(--muted);
+    margin-bottom: 0.6rem; line-height: 1.5;
+}}
+.sources a {{ color: var(--accent); }}
+
+/* Footer */
+footer {{
+    text-align: center;
+    padding: 3rem 2rem;
+    border-top: 1px solid var(--border);
+    font-size: 0.82rem; color: var(--muted);
+    font-family: 'Inter', sans-serif;
+}}
+
+/* Reveal animation */
+.reveal {{
+    opacity: 0; transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}}
+.reveal.visible {{
+    opacity: 1; transform: translateY(0);
+}}
+</style>
+</head>
+<body>
+<div id="progress-bar"></div>
+
+<nav>
+  <span class="logo">PL Finances 2023/24</span>
+  <ul class="nav-links">
+    <li><a href="#introduction">Intro</a></li>
+    <li><a href="#data">Data</a></li>
+    <li><a href="#findings">Findings</a></li>
+    <li><a href="#conclusion">Conclusion</a></li>
+    <li><a href="#sources">Sources</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <p class="hero-tag">BEE2041 Empirical Project &nbsp;·&nbsp; University of Exeter &nbsp;·&nbsp; 2023/24 Season</p>
+  <h1>Does Money Buy Success in the Premier League?</h1>
+  <p class="subtitle">An empirical analysis of how wage expenditure and revenue determine club performance across all 20 Premier League clubs in 2023/24.</p>
+  <div class="hero-stats">
+    <div class="stat-box">
+      <div class="num">r = {findings['r_wages_points']}</div>
+      <div class="label">Wages–Points Correlation</div>
+    </div>
+    <div class="stat-box">
+      <div class="num">{int(findings['m1_r_squared']*100)}%</div>
+      <div class="label">Variation Explained (M1)</div>
+    </div>
+    <div class="stat-box">
+      <div class="num">20</div>
+      <div class="label">Premier League Clubs</div>
+    </div>
+    <div class="stat-box">
+      <div class="num">£{findings['highest_wages_m']}m</div>
+      <div class="label">Highest Wage Bill (Man City)</div>
+    </div>
+  </div>
+</section>
+</body>
+</html>"""
+
+with open(OUTPUT, 'w') as f:
+    f.write(html)
+
+print(f"Blog saved to {OUTPUT}")
+
