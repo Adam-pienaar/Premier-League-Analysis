@@ -291,6 +291,33 @@ footer {{
     </div>
   </section>
 
+  <!-- DATA -->
+  <section id="data" class="reveal">
+    <p class="section-tag">The Data</p>
+    <h2>Variables and Sources</h2>
+    <p>
+      Data was collected for all 20 Premier League clubs competing in the 2023/24 season. Financial figures are sourced from Deloitte's Annual Review of Football Finance 2025 (Table 1, p.44), which compiles data from company and group financial statements filed at Companies House. Performance data is sourced from the official Premier League website and verified against Wikipedia.
+    </p>
+    <table class="reg-table">
+      <thead>
+        <tr>
+          <th>Variable</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Source</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Final Points</td><td>Dependent</td><td>Total points, 2023/24 season</td><td>Premier League</td></tr>
+        <tr><td>Goals Scored</td><td>Dependent</td><td>Goals scored, 2023/24</td><td>Premier League</td></tr>
+        <tr><td>Goals Conceded</td><td>Dependent</td><td>Goals conceded, 2023/24</td><td>Premier League</td></tr>
+        <tr><td>Wage Cost £m</td><td>Independent</td><td>Annual wage bill (£m), year end 2024</td><td>Deloitte (2025)</td></tr>
+        <tr><td>Revenue £m</td><td>Independent</td><td>Total revenue (£m), year end 2024</td><td>Deloitte (2025)</td></tr>
+        <tr><td>Wage to Revenue Ratio</td><td>Engineered</td><td>Wage costs as % of revenue</td><td>Calculated</td></tr>
+      </tbody>
+    </table>
+  </section>
+
 </main>
 <script>
   // Progress bar

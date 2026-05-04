@@ -265,14 +265,41 @@ footer {
     <p class="section-tag">Introduction</p>
     <h2>The Research Question</h2>
     <p>
-      The Premier League is the most watched football league in the world and one of the most commercially successful sports competitions on the planet. In the 2023/24 season, Premier League clubs generated a combined £6.3 billion in revenue — yet on-pitch results varied dramatically, from Manchester City's dominant title-winning campaign to Sheffield United's relegation with just 16 points.
+      The Premier League is the most-watched football league in the world, therefore it comes as no surprise that it is one of the most commercially successful sports competitions. The clubs generate a ridiculous amount of money, and combined in the 2024/24 season, their combined revenue was £6.3 billion. Some clubs generate more than others, and as most know, the league standings vary drastically. (Manchester City and Sheffield United had a 75-point difference)
     </p>
     <p>
-      This project asks a focused empirical question: <strong>to what extent does wage expenditure determine Premier League club performance?</strong> Using verified financial data from the Deloitte Annual Review of Football Finance 2025 and official Premier League standings, we run OLS regression models to quantify the relationship between club finances and on-pitch results.
+      This blog analyses how clubs' wage spending may explain differences in performance, drawing on data from the Deloitte Annual Review of Football Finance 2025 and the official Premier League standings. In order to examine the relationship between club finances and league results, an OLS regression model is run.
     </p>
     <div class="callout">
-      <p><strong>Research question:</strong> To what extent does wage expenditure determine Premier League club performance?</p>
+      <p><strong>Research question:</strong> To what extent does higher wage spending result in better Premier League club performance?</p>
     </div>
+  </section>
+
+  <!-- DATA -->
+  <section id="data" class="reveal">
+    <p class="section-tag">The Data</p>
+    <h2>Variables and Sources</h2>
+    <p>
+      Data was collected for all 20 Premier League clubs competing in the 2023/24 season. Financial figures are sourced from Deloitte's Annual Review of Football Finance 2025 (Table 1, p.44), which compiles data from company and group financial statements filed at Companies House. Performance data is sourced from the official Premier League website and verified against Wikipedia.
+    </p>
+    <table class="reg-table">
+      <thead>
+        <tr>
+          <th>Variable</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Source</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Final Points</td><td>Dependent</td><td>Total points, 2023/24 season</td><td>Premier League</td></tr>
+        <tr><td>Goals Scored</td><td>Dependent</td><td>Goals scored, 2023/24</td><td>Premier League</td></tr>
+        <tr><td>Goals Conceded</td><td>Dependent</td><td>Goals conceded, 2023/24</td><td>Premier League</td></tr>
+        <tr><td>Wage Cost £m</td><td>Independent</td><td>Annual wage bill (£m), year end 2024</td><td>Deloitte (2025)</td></tr>
+        <tr><td>Revenue £m</td><td>Independent</td><td>Total revenue (£m), year end 2024</td><td>Deloitte (2025)</td></tr>
+        <tr><td>Wage to Revenue Ratio</td><td>Engineered</td><td>Wage costs as % of revenue</td><td>Calculated</td></tr>
+      </tbody>
+    </table>
   </section>
 
 </main>
