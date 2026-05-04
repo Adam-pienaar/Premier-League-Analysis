@@ -273,6 +273,39 @@ footer {{
     </div>
   </div>
 </section>
+
+<main>
+
+<!-- INTRODUCTION -->
+  <section id="introduction" class="reveal">
+    <p class="section-tag">Introduction</p>
+    <h2>The Research Question</h2>
+    <p>
+      The Premier League is the most-watched football league in the world, therefore it comes as no surprise that it is one of the most commercially successful sports competitions. The clubs generate a ridiculous amount of money, and combined in the 2024/24 season, their combined revenue was £6.3 billion. Some clubs generate more than others, and as most know, the league standings vary drastically. (Manchester City and Sheffield United had a 75-point difference)
+    </p>
+    <p>
+      This blog analyses how clubs' wage spending may explain differences in performance, drawing on data from the Deloitte Annual Review of Football Finance 2025 and the official Premier League standings. In order to examine the relationship between club finances and league results, an OLS regression model is run.
+    </p>
+    <div class="callout">
+      <p><strong>Research question:</strong> To what extent does higher wage spending result in better Premier League club performance?</p>
+    </div>
+  </section>
+
+</main>
+<script>
+  // Progress bar
+  window.addEventListener('scroll', () => {{
+    const doc = document.documentElement;
+    const pct = (doc.scrollTop / (doc.scrollHeight - doc.clientHeight)) * 100;
+    document.getElementById('progress-bar').style.width = pct + '%';
+  }});
+
+  // Reveal on scroll
+  const observer = new IntersectionObserver((entries) => {{
+    entries.forEach(e => {{ if (e.isIntersecting) e.target.classList.add('visible'); }});
+  }}, {{ threshold: 0.1 }});
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
 </body>
 </html>"""
 
@@ -280,4 +313,6 @@ with open(OUTPUT, 'w') as f:
     f.write(html)
 
 print(f"Blog saved to {OUTPUT}")
+
+
 

@@ -257,5 +257,38 @@ footer {
     </div>
   </div>
 </section>
+
+<main>
+
+<!-- INTRODUCTION -->
+  <section id="introduction" class="reveal">
+    <p class="section-tag">Introduction</p>
+    <h2>The Research Question</h2>
+    <p>
+      The Premier League is the most watched football league in the world and one of the most commercially successful sports competitions on the planet. In the 2023/24 season, Premier League clubs generated a combined £6.3 billion in revenue — yet on-pitch results varied dramatically, from Manchester City's dominant title-winning campaign to Sheffield United's relegation with just 16 points.
+    </p>
+    <p>
+      This project asks a focused empirical question: <strong>to what extent does wage expenditure determine Premier League club performance?</strong> Using verified financial data from the Deloitte Annual Review of Football Finance 2025 and official Premier League standings, we run OLS regression models to quantify the relationship between club finances and on-pitch results.
+    </p>
+    <div class="callout">
+      <p><strong>Research question:</strong> To what extent does wage expenditure determine Premier League club performance?</p>
+    </div>
+  </section>
+
+</main>
+<script>
+  // Progress bar
+  window.addEventListener('scroll', () => {
+    const doc = document.documentElement;
+    const pct = (doc.scrollTop / (doc.scrollHeight - doc.clientHeight)) * 100;
+    document.getElementById('progress-bar').style.width = pct + '%';
+  });
+
+  // Reveal on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
 </body>
 </html>
