@@ -318,6 +318,38 @@ footer {{
     </table>
   </section>
 
+  <!-- FIGURES -->
+<section id="findings" class="reveal">
+  <p class="section-tag">Findings</p>
+  <h2>Visual Insights</h2>
+
+  <h3>Graph 1 — Wage Costs vs Final Points</h3>
+  <p>
+    The relationship between wage expenditure and final points is strikingly strong. The Pearson correlation of r = {findings['r_wages_points']} confirms that clubs with higher wage bills consistently finish higher in the table. Manchester City (£{findings['highest_wages_m']}m wages, 91 points) and Luton Town (£{findings['lowest_wages_m']}m wages, 26 points) represent the extremes of this relationship.
+  </p>
+  <div class="figure-block">
+    <img src="data:image/png;base64,{graphs[1]}" alt="Graph 1 — Wage Costs vs Final Points">
+    <p class="caption">Graph 1: Wage costs (£m) vs final points for all 20 Premier League clubs in 2023/24. Teal = Big Six, Golden Yellow = other clubs. Dashed blue line = OLS regression fit.</p>
+  </div>
+
+  <h3>Graph 2 — Revenue vs Final Points</h3>
+  <p>
+    Revenue is also strongly correlated with points (r = {findings['r_revenue_points']}), though slightly weaker than wages. This makes intuitive sense as revenue funds wages, but clubs differ in how much of their revenue they allocate to the wage bill.
+  </p>
+  <div class="figure-block">
+    <img src="data:image/png;base64,{graphs[2]}" alt="Graph 2 — Revenue vs Final Points">
+    <p class="caption">Graph 2: Total revenue (£m) vs final points. r = {findings['r_revenue_points']}, M2 R² = {findings['m2_r_squared']}.</p>
+  </div>
+
+  <h3>Graph 3 — Wage Efficiency vs Final Points</h3>
+  <p>
+    The wages-to-revenue ratio measures how much of a club's income goes on wages. Interestingly, this ratio does not predict performance as cleanly as some high-spending clubs (Aston Villa, Nottingham Forest) allocated over 90% of revenue to wages yet finished mid-table, while Tottenham allocated just 43% and finished 5th.
+  </p>
+  <div class="figure-block">
+    <img src="data:image/png;base64,{graphs[3]}" alt="Graph 3 — Wage Efficiency vs Final Points">
+    <p class="caption">Graph 3: Wage to revenue ratio (%) vs final points. The dotted red line marks 100% — where wage costs equal revenue.</p>
+  </div>
+
 </main>
 <script>
   // Progress bar
